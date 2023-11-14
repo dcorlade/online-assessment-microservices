@@ -1,0 +1,5 @@
+## User Stories
+
+These incude (parts) of the product, written from the user-perspective.
+The user stories include a rough estimation of the intrinsic value of the project, compared
+to the required effort. Usually the Product Owner writes the user stories.

@@ -1,0 +1,8 @@
+include:
+  - services/authentication/.gitlab-ci.yml
+  - services/authorization/.gitlab-ci.yml
+  - services/course-service/.gitlab-ci.yml
+  - services/exam-service/.gitlab-ci.yml
+  - services/student-service/.gitlab-ci.yml
+  - services/teacher-service/.gitlab-ci.yml
+  - services/shared/.gitlab-ci.yml

@@ -1,0 +1,4 @@
+## Product backlog
+
+An ordered list of all User Stories. Anyone may alter the backlog, but the Product Owner
+carries the final responsibility.

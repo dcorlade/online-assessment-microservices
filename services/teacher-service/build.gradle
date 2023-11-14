@@ -1,0 +1,41 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.5.RELEASE' apply true
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'java'
+    // Test coverage
+    id 'jacoco'
+
+    // Code style
+    id 'checkstyle'
+
+    // PMD
+    id 'pmd'
+
+    // PITest
+    id 'info.solidsoft.pitest'
+}
+
+evaluationDependsOn(':services:shared')
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+    testCompile group: 'org.mockito', name: 'mockito-core', version: '3.6.28'
+    testCompile group: 'org.mockito', name: 'mockito-inline', version: '3.6.28'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.16'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'
+    runtimeOnly 'mysql:mysql-connector-java'
+    developmentOnly 'org.hibernate:hibernate-entitymanager'
+    testImplementation('org.junit.jupiter:junit-jupiter:5.5.2')
+    testImplementation('org.assertj:assertj-core:3.14.0')
+    testImplementation("org.mock-server:mockserver-netty:5.11.2")
+    compile group: 'org.json', name: 'json', version: '20190722'
+    implementation project(':services:shared')
+}

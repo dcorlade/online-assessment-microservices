@@ -1,0 +1,46 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.5.RELEASE' apply true
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'java'
+    // Test coverage
+    id 'jacoco'
+
+    // Code style
+    id 'checkstyle'
+
+    // PMD
+    id 'pmd'
+
+    // PITest
+    id 'info.solidsoft.pitest'
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    runtimeOnly 'mysql:mysql-connector-java'
+    developmentOnly 'org.hibernate:hibernate-entitymanager'
+    testImplementation('org.junit.jupiter:junit-jupiter:5.5.2')
+    testCompile group: 'org.mockito', name: 'mockito-core', version: '3.6.28'
+    testCompile group: 'org.mockito', name: 'mockito-inline', version: '3.6.28'
+    testImplementation('org.assertj:assertj-core:3.14.0')
+    testCompile group: 'com.h2database', name: 'h2', version: '1.0.60'
+    compile group: 'org.json', name: 'json', version: '20190722'
+    compile "com.google.guava:guava:16+"
+    compile("com.auth0:java-jwt:3.4.0")
+    compile 'io.jsonwebtoken:jjwt-api:0.11.2'
+    runtime 'io.jsonwebtoken:jjwt-impl:0.11.2',
+            // Uncomment the next line if you want to use RSASSA-PSS (PS256, PS384, PS512) algorithms:
+            //'org.bouncycastle:bcprov-jdk15on:1.60',
+            'io.jsonwebtoken:jjwt-jackson:0.11.2' // or 'io.jsonwebtoken:jjwt-gson:0.11.2' for gson
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+    testCompileOnly 'org.projectlombok:lombok:1.18.16'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'
+    implementation project(':services:shared')
+}

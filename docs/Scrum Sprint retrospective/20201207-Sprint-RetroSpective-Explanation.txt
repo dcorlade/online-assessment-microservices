@@ -1,0 +1,6 @@
+## Sprint RetroSpective
+
+The team reviews the most recent Sprint to improve the process. The central questions are:
+
+- What went well during the Sprint?
+- What could be improved for the next sprint?

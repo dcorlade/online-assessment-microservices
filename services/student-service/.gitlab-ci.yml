@@ -1,0 +1,37 @@
+image: registry.fvdh.dev/gradle:6.7-jdk11
+
+stages:
+  - build
+  - staticAnalysis
+  - test
+
+variables:
+  # Disable the Gradle daemon to ensure isolated runs of the CI pipeline.
+  GRADLE_OPTS: "-Dorg.gradle.daemon=false"
+
+student-service_build:
+  stage: build
+  script:
+    gradle --build-cache :services:student-service:assemble
+  cache:
+    key: "$CI_COMMIT_REF_NAME"
+    policy: push
+    paths:
+      - build/
+      - .gradle/
+
+student-service_checkStyle:
+  stage: staticAnalysis
+  script:
+    gradle :services:student-service:checkstyleMain :services:student-service:checkstyleTest
+
+student-service_PMD:
+  stage: staticAnalysis
+  script:
+    gradle :services:student-service:pmdMain :services:student-service:pmdTest
+
+student-service_test:
+  stage: test
+  script:
+    gradle :services:student-service:test
+

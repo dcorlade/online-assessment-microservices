@@ -1,0 +1,3 @@
+## Sprint review
+Here we show the work we did to the client.
+We can use the folder for textual preparations. 

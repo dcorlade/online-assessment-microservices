@@ -1,0 +1,6 @@
+## Sprint backlog
+
+An overview of all the work that the development team will do in the upcoming Sprint.
+The list is created by selecting user stories of the product backlog.
+It's filled till the team has enough to do during the sprint.
+The GitLab board maintains this list (to do/doing/done).
